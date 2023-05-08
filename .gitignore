@@ -1,2 +1,15 @@
+.encryptedKey.json
 node_modules
-node_modules
+.env
+coverage
+coverage.json
+typechain
+.gitignore_stash
+# vscode
+.vscode
+#Hardhat files
+cache
+artifacts
+.DS_Store
+gas-report.txt
+deployments
