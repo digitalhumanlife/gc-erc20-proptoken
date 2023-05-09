@@ -1,6 +1,6 @@
+.env
 .encryptedKey.json
 node_modules
-.env
 coverage
 coverage.json
 typechain
@@ -13,3 +13,4 @@ artifacts
 .DS_Store
 gas-report.txt
 deployments
+.env
