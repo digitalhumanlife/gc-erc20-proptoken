@@ -4,6 +4,7 @@ require("@nomiclabs/hardhat-etherscan")
 require("dotenv").config()
 require("solidity-coverage")
 require("hardhat-deploy")
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 /**
@@ -28,7 +29,7 @@ module.exports = {
             accounts: [PRIVATE_KEY],
             chainId: 11155111,
             blockConfirmations: 6,
-            gas: 6000000,
+            gas: 3000000,
         },
         mainnet: {
             url: process.env.MAINNET_RPC_URL,

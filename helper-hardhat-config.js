@@ -4,6 +4,7 @@ const networkConfig = {
         ethUsdPriceFeed: "0x694AA1769357215DE4FAC081bf1f309aDC325306",
         gasLane: "0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c", // 30 gwei
         mintFee: "10000000000000000", // 0.01 ETH
+        supplyLimit: "1000000000000000000", // limit 10**18
         callbackGasLimit: "500000", // 500,000 gas
     },
     5: {
@@ -30,7 +31,8 @@ const networkConfig = {
 }
 
 const DECIMALS = "18"
-const INITIAL_PRICE = "200000000000000000000"
+const INITIAL_PRICE = "1"
+const SUPPLY_CAP = "100"
 const developmentChains = ["hardhat", "localhost"]
 
 module.exports = {
@@ -38,4 +40,5 @@ module.exports = {
     developmentChains,
     DECIMALS,
     INITIAL_PRICE,
+    SUPPLY_CAP,
 }
