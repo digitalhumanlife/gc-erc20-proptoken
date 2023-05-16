@@ -30,6 +30,9 @@ const networkConfig = {
     },
 }
 
+const frontEndContractsFile = "../gc-nextjs-proptoken/constants/contractAddresses.json"
+const frontEndAbiFile = "../gc-nextjs-proptoken/constants/abi.json"
+
 const DECIMALS = "18"
 const INITIAL_PRICE = "1"
 const SUPPLY_CAP = "100"
@@ -41,4 +44,6 @@ module.exports = {
     DECIMALS,
     INITIAL_PRICE,
     SUPPLY_CAP,
+    frontEndContractsFile,
+    frontEndAbiFile,
 }
