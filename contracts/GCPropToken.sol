@@ -80,4 +80,8 @@ contract GCPropToken is ERC20, Ownable {
     function getSupplyLimit() public view returns (uint256) {
         return totalSupplyLimit;
     }
+
+    function getTotalIssued() public view returns (uint256) {
+        return totalSupply();
+    }
 }

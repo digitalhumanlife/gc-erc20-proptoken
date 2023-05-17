@@ -17,6 +17,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const TOTAL_SUPPLY = ethers.utils.parseUnits(SUPPLY_CAP.toString(), 18)
     console.log("SUPPLY_CAP:: " + SUPPLY_CAP.toString())
     console.log("Total supply:: " + TOTAL_SUPPLY.toString())
+    console.log("chainId:: " + chainId.toString())
 
     log("----------------------------------------------------")
     arguments = [INITIAL_PRICE, TOTAL_SUPPLY]
