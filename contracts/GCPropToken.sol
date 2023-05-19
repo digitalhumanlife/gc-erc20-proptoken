@@ -27,6 +27,10 @@ contract GCPropToken is ERC20, Ownable {
         }
     }
 
+    function testAccess() internal pure returns (uint256) {
+        return 1;
+    }
+
     // Function to buy tokens during token sale
     function buyTokens(uint256 amount) external payable {
         require(msg.value == amount * tokenSalePrice, "Incorrect amount of Ether sent");
