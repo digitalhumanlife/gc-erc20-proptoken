@@ -88,4 +88,10 @@ contract GCPropToken is ERC20, Ownable {
     function getTotalIssued() public view returns (uint256) {
         return totalSupply();
     }
+
+    function getDivBalanceOf(address account) public returns (uint256) {
+        updateDiv(account);
+        uint256 amount = dividendBalanceOf[account];
+        return amount;
+    }
 }
