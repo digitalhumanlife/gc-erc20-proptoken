@@ -7,7 +7,7 @@ async function mintgc() {
     console.log("Token Value:", tokenValue1.toString())
     const accounts = await ethers.getSigners()
 
-    const account1 = accounts[1]
+    const account1 = accounts[0]
     const account2 = accounts[2]
     const account3 = accounts[3]
     //const {deployer} = await getNamedAccounts()
