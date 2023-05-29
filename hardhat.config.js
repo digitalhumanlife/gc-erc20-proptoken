@@ -13,7 +13,8 @@ require("hardhat-deploy")
 
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || ""
 const SEPOLIA_RPC_URL =
-    process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY"
+    process.env.SEPOLIA_RPC_URL ||
+    "https://eth-sepolia.g.alchemy.com/v2/Rg_BPsIM1UrutTANkBG-9gfsa3fTrMuY"
 const PRIVATE_KEY = process.env.PRIVATE_KEY || ""
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || ""
 

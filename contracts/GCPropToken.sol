@@ -4,6 +4,11 @@ pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+////////////////////////////////////////////////
+// REMOVE BEFORE DEPLOYMENT TO LIVE NETWORK   //
+////////////////////////////////////////////////
+import "hardhat/console.sol";
+
 contract GCPropToken is ERC20, Ownable {
     uint256 public totalSupplyLimit; // = 10 * (10 ** 18); // Total supply of tokens
     uint256 public tokenSalePrice; // Price of tokens during token sale
@@ -13,6 +18,7 @@ contract GCPropToken is ERC20, Ownable {
     mapping(address => uint256) dividendCreditedTo; //cumulative ether per token previously credited
 
     // mapping(address => uint256) balanceOf;
+    event UpdatedDiv(address indexed account, uint256 amount);
 
     constructor(uint256 _price, uint256 _totalSupplyLimit) ERC20("GC PropTokenTest2", "GCT") {
         tokenSalePrice = _price;
@@ -25,6 +31,13 @@ contract GCPropToken is ERC20, Ownable {
             dividendBalanceOf[account] += balanceOf(account) * owed;
             dividendCreditedTo[account] = dividendPerToken;
         }
+        uint256 updatedDiv = dividendBalanceOf[account] + balanceOf(account) * owed;
+        emit UpdatedDiv(account, updatedDiv);
+
+        ////////////////////////////////////////////////
+        // REMOVE BEFORE DEPLOYMENT TO LIVE NETWORK   //
+        ////////////////////////////////////////////////
+        console.log("Event fired(Updated): ", updatedDiv);
     }
 
     function testAccess() internal pure returns (uint256) {
@@ -49,14 +62,29 @@ contract GCPropToken is ERC20, Ownable {
     // Function to withdraw DIVIDENDs
     function withdrawDiv() public {
         updateDiv(msg.sender);
+        ////////////////////////////////////////////////
+        // REMOVE BEFORE DEPLOYMENT TO LIVE NETWORK   //
+        ////////////////////////////////////////////////
+        console.log("Withdrawing for: ", msg.sender);
+
         uint256 amount = dividendBalanceOf[msg.sender];
+        ////////////////////////////////////////////////
+        // REMOVE BEFORE DEPLOYMENT TO LIVE NETWORK   //
+        ////////////////////////////////////////////////
+        console.log("Amount: ", amount);
+
         dividendBalanceOf[msg.sender] = 0;
         (bool sent, ) = payable(msg.sender).call{value: amount}("");
-        require(sent, "Failed to withdraw divend from contract");
+        require(sent, "Failed to withdraw dividend from contract");
     }
 
     // Function to deposit DIVIDENDs
     function deposit() public payable {
+        ////////////////////////////////////////////////
+        // REMOVE BEFORE DEPLOYMENT TO LIVE NETWORK   //
+        ////////////////////////////////////////////////
+        console.log("depositing %s", msg.value);
+
         dividendPerToken += msg.value / totalSupply(); // ignoring remainder
     }
 
