@@ -35,7 +35,8 @@ const frontEndAbiFile = "../gc-nextjs-proptoken/constants/abi.json"
 
 const DECIMALS = "18"
 const INITIAL_PRICE = "1"
-const SUPPLY_CAP = "100"
+const SUPPLY_CAP = "1000"
+const MINIMUM_QUANTITY = "100"
 const developmentChains = ["hardhat", "localhost"]
 
 module.exports = {
@@ -44,6 +45,7 @@ module.exports = {
     DECIMALS,
     INITIAL_PRICE,
     SUPPLY_CAP,
+    MINIMUM_QUANTITY,
     frontEndContractsFile,
     frontEndAbiFile,
 }

@@ -5,6 +5,7 @@ const {
     SUPPLY_CAP,
     DECIMALS,
     INITIAL_PRICE,
+    MINIMUM_QUANTITY,
 } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
 require("dotenv").config()
@@ -20,7 +21,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     console.log("chainId:: " + chainId.toString())
 
     log("----------------------------------------------------")
-    arguments = [INITIAL_PRICE, TOTAL_SUPPLY]
+    arguments = [INITIAL_PRICE, TOTAL_SUPPLY, MINIMUM_QUANTITY]
     const gcToken = await deploy("GCPropToken", {
         from: deployer,
         args: arguments,

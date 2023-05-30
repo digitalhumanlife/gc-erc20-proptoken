@@ -5,7 +5,7 @@ async function mintgc() {
     // const numOfTokens = ethers.BigNumber.from(5)
     // const tokenValue1 = ethers.utils.parseUnits(numOfTokens.toString(), 18)
 
-    const tokenValue1 = ethers.utils.parseEther("30")
+    const tokenValue1 = ethers.utils.parseEther("10")
     console.log("Token Value:", tokenValue1.toString())
 
     const accounts = await ethers.getSigners()
