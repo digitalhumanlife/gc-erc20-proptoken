@@ -29,3 +29,32 @@ eventTest()
         console.log(error)
         process.exit(1)
     })
+
+//     const [eventLogs, setEventLogs] = useState([])
+//     const listenToEvent = () =>{
+//     contract.on("Transfer", (from, to, tokenId, event) => {
+//         let data = {
+//             from,
+//             to,
+//             tokenId: tokenId.toString(),
+//             event,
+//         }
+//         setEventLogs((oldState) => [...oldState, data])
+//     })
+// }
+//     return(
+//     <button
+//         style={{display: btnHide?"none":null}}
+//         className ="button"
+//         onClick={() => listenToEvent()}>Listen to event
+//     </button>
+//     {
+//         eventLogs.reverse().map((event, index) => {
+//             return <div key = {index} className="container">
+//             <p>from: {event.from}</p>
+//             <p>{"======>"}</p>
+//             <p>To: {event.to}</p>
+//             </div>
+//         })
+//     }
+//     )
