@@ -4,7 +4,7 @@ async function sendDivToken() {
     const { deployer } = await getNamedAccounts()
     const gcTokenContract = await ethers.getContract("GCPropToken", deployer)
     const contractAccount = gcTokenContract.address
-    const tx = await gcTokenContract.deposit({ value: ethers.utils.parseEther("10") })
+    const tx = await gcTokenContract.deposit({ value: ethers.utils.parseEther("30") })
     const txReceipt = await tx.wait(1)
     console.log("Deposit completed! ") //+ txReceipt.events[0].args[0].toString())
     console.log("TxR: " + txReceipt)

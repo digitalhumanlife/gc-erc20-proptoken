@@ -7,20 +7,19 @@ async function eventTest() {
     const gcTokenContract = await ethers.getContractAt(GCPropTokenABI, contractAddress)
     const contractAccount = gcTokenContract.address
     const deployerAccount = deployer.address
-    gcTokenContract.on("UpdatedDiv", (deployerAccount1, amount) => {
-        console.log("UpdatedDiv event: " + deployerAccount1 + " / " + amount)
+    gcTokenContract.on("UpdatedDiv", (deployerAccount, amount) => {
+        console.log("UpdatedDiv event: " + deployerAccount + " / " + amount)
     })
-    // await new Promise(async (resolve, reject) => {
-    //     setTimeout(() => reject("Timeout!"), 10000)
+    await new Promise(async (resolve, reject) => {
+        setTimeout(() => reject("Timeout!"), 50000)
 
-    //     const test = gcTokenContract.on("UpdatedDiv", (accountEvent, amount) => {
-    //         console.log("UpdatedDiv event: " + accountEvent + " / " + amount)
-    //         resolve()
-    //     })
-    // })
+        const test = gcTokenContract.on("UpdatedDiv", (account, amount) => {
+            console.log("UpdatedDiv event: " + account + " / " + amount)
+            resolve()
+        })
+    })
 
     console.log("Testing...")
-    console.log("Static Call: " + (await gcTokenContract.callStatic.getDivBalanceOf(deployer)))
 }
 
 eventTest()
