@@ -12,6 +12,9 @@ require("hardhat-deploy")
  */
 
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || ""
+GOERLI_RPC_URL =
+    process.env.GOERLI_RPC_URL ||
+    "https://eth-goerli.g.alchemy.com/v2/lZsE0HhdILt8pyr1Qvn9ptKjyEYHOwCm"
 const SEPOLIA_RPC_URL =
     process.env.SEPOLIA_RPC_URL ||
     "https://eth-sepolia.g.alchemy.com/v2/Rg_BPsIM1UrutTANkBG-9gfsa3fTrMuY"
@@ -32,6 +35,13 @@ module.exports = {
             blockConfirmations: 6,
             gas: 3000000,
         },
+        goerli: {
+            url: GOERLI_RPC_URL,
+            accounts: [PRIVATE_KEY],
+            chainId: 5,
+            blockConfirmations: 6,
+            gas: 3000000,
+        },
         mainnet: {
             url: process.env.MAINNET_RPC_URL,
             accounts: [PRIVATE_KEY],
@@ -43,9 +53,21 @@ module.exports = {
         compilers: [
             {
                 version: "0.8.8",
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 200,
+                    },
+                },
             },
             {
                 version: "0.8.7",
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 200,
+                    },
+                },
             },
 
             {

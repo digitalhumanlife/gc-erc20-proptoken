@@ -35,15 +35,29 @@ const frontEndAbiFile = "../gc-nextjs-proptoken/constants/abi.json"
 
 const DECIMALS = "18"
 const INITIAL_PRICE = "1"
+const MINIMUM_QUANTITY = "10000000000"
 const SUPPLY_CAP = "100"
+
 const developmentChains = ["hardhat", "localhost"]
+
+const QUORUM_PERCENTAGE = 4
+const MIN_DELAY = 3600
+const VOTING_PERIOD = 5 // 45818 blocks = 1 week(which is too long for testing)
+const VOTING_DELAY = 1
+const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000"
 
 module.exports = {
     networkConfig,
     developmentChains,
     DECIMALS,
     INITIAL_PRICE,
+    MINIMUM_QUANTITY,
     SUPPLY_CAP,
+    QUORUM_PERCENTAGE,
+    MIN_DELAY,
+    VOTING_PERIOD,
+    VOTING_DELAY,
+    ADDRESS_ZERO,
     frontEndContractsFile,
     frontEndAbiFile,
 }

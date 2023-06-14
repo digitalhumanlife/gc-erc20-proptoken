@@ -12,12 +12,12 @@ module.exports = async () => {
 }
 
 async function updateAbi() {
-    const gcPropToken = await ethers.getContract("GCPropToken")
+    const gcPropToken = await ethers.getContract("GCPropTokenTestDao")
     fs.writeFileSync(frontEndAbiFile, gcPropToken.interface.format(ethers.utils.FormatTypes.json))
 }
 
 async function updateContractAddresses() {
-    const gcPropToken = await ethers.getContract("GCPropToken")
+    const gcPropToken = await ethers.getContract("GCPropTokenTestDao")
     console.log("gcPropToken:: " + gcPropToken.address)
     const contractAddresses = JSON.parse(fs.readFileSync(frontEndContractsFile, "utf8"))
     console.log("contractAddresses:: " + JSON.stringify(contractAddresses))

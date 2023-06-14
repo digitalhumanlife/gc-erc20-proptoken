@@ -4,6 +4,7 @@ const verify = async (contractAddress, args) => {
     console.log("Verifying contract at address: ", contractAddress)
     try {
         await run("verify:verify", {
+            contract: "contracts/governance_standard/Timelock.sol:Timelock",
             address: contractAddress,
             constructorArguments: args,
         })

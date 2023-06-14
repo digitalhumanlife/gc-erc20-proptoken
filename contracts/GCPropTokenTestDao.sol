@@ -10,7 +10,12 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 ////////////////////////////////////////////////
 import "hardhat/console.sol";
 
-contract GCPropToken is ERC20Votes, Ownable {
+/// @title GCPropTokenDao
+/// @dev The original token has update() function to incorporate dividend payments, that costs gas.
+/// This contract utilizes on-chian voting with delegate() costs gas too,in addition to the update() function
+/// Maybe it's better to use off-chain voting and update the dividend balance of each token holder for gas efficiency?
+
+contract GCPropTokenTestDao is ERC20Votes, Ownable {
     uint256 public totalSupplyLimit; // = 10 * (10 ** 18); // Total supply of tokens
     uint256 public tokenSalePrice; // Price of tokens during token sale
     uint256 public minimumQuantity; // Minimum quantity of tokens to buy
@@ -26,7 +31,7 @@ contract GCPropToken is ERC20Votes, Ownable {
         uint256 _price,
         uint256 _totalSupplyLimit,
         uint256 _minQuantity
-    ) ERC20("GC PropTokenTest2", "GCT") ERC20Permit("GC PropTokenTest2") {
+    ) ERC20("GC PropTokenTestDao", "GCTD") ERC20Permit("GC PropTokenTestDao") {
         tokenSalePrice = _price;
         totalSupplyLimit = _totalSupplyLimit;
         minimumQuantity = _minQuantity;
@@ -56,10 +61,6 @@ contract GCPropToken is ERC20Votes, Ownable {
             ////////////////////////////////////////////////
             console.log("Event fired(Updated): ", updatedDiv);
         }
-    }
-
-    function testAccess() internal pure returns (uint256) {
-        return 1;
     }
 
     // Function to buy tokens during token sale
