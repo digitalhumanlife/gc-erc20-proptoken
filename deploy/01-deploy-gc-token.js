@@ -15,6 +15,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
     const chainId = network.config.chainId
+    console.log("chainId:: " + chainId)
     const TOTAL_SUPPLY = ethers.utils.parseUnits(SUPPLY_CAP.toString(), 18)
     console.log("SUPPLY_CAP:: " + SUPPLY_CAP.toString())
     console.log("Total supply:: " + TOTAL_SUPPLY.toString())
