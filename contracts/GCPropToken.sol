@@ -7,6 +7,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 ////////////////////////////////////////////////
 // REMOVE BEFORE DEPLOYMENT TO LIVE NETWORK   //
+// !! Refactor the visibility of variables    //
+// !! variables of the getter functions       //
 ////////////////////////////////////////////////
 import "hardhat/console.sol";
 
@@ -58,10 +60,6 @@ contract GCPropToken is ERC20Votes, Ownable {
         }
     }
 
-    function testAccess() internal pure returns (uint256) {
-        return 1;
-    }
-
     // Function to buy tokens during token sale
     function buyTokens(uint256 amount) external payable {
         require(msg.value == amount * tokenSalePrice, "Incorrect amount of Ether sent");
@@ -95,7 +93,7 @@ contract GCPropToken is ERC20Votes, Ownable {
 
         dividendBalanceOf[msg.sender] = 0;
         (bool sent, ) = payable(msg.sender).call{value: amount}("");
-        require(sent, "Failed to withdraw dividend from contract");
+        require(sent, "Failed to withdraw dividend of contract");
     }
 
     // Function to deposit DIVIDENDs
@@ -156,6 +154,10 @@ contract GCPropToken is ERC20Votes, Ownable {
 
     function getTokenPrice() public view returns (uint256) {
         return tokenSalePrice;
+    }
+
+    function getMinimumQuantity() public view returns (uint256) {
+        return minimumQuantity;
     }
 
     function getSupplyLimit() public view returns (uint256) {
